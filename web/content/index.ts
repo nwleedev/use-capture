@@ -1,3 +1,5 @@
+import { YoutubeLibs } from "@/lib/youtube";
+
 function isMessage<Type extends string>(
   message: unknown,
   type: Type
@@ -94,8 +96,9 @@ function onMessage(
   if (isMessage(message, "INFO") && document !== undefined) {
     const title = document.title;
     const video = document.querySelector("video");
+    const videoId = YoutubeLibs.getVideoId(window.location.href);
 
-    if (video !== null) {
+    if (video !== null && videoId !== null) {
       const duration = video.duration;
       const current = video.currentTime;
       senderResponse({ title, duration, current });

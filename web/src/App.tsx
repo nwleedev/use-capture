@@ -210,7 +210,9 @@ function App() {
                 <p className="text-sm">8</p>
               </div>
             </div>
-            <Button type="submit">Capture</Button>
+            <Button type="submit" disabled={disabled}>
+              Capture
+            </Button>
           </form>
         )}
         {stage === "INDEX" && blobs.length > 0 && (
